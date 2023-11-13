@@ -164,17 +164,10 @@ div.a {
   color: #33495E;
   border-right:solid 1px #7b6f85;
 }
-.side {
-  -ms-flex: 40%; 
-  flex: 40%;
-  background-color: #D4DCE6;
-  color: #33495E;
-  padding: 20px;
-}
 
-.main {   
-  -ms-flex: 70%;
-  flex: 70%;
+.main {
+  box-sizing: border-box;
+  width: 100%; /* Set the width to 100% */
   color: #4E2A77;
   padding: 20px;
   background: #9a8ba6;

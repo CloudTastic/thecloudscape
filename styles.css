@@ -6,88 +6,75 @@
 body {
   font-family: alegreya, alegreya, alegreya;
   margin: 0;
+  background-color: #9a8ba6;
 }
 
-/* Header/logo Title */
-.header {
-  padding: 80px;
-  text-align: center;
-  background: #8EB9C8;
-  color: #516A72;
-}
 
-/* Increase the font size of the heading */
-.header h1 {
-  font-size: 40px;
-}
- 
-/* Style the top navigation bar */
-.navbar {
-  overflow: hidden;
-  background-color: #4C3F51;
-}
-
-div.a {
-  text-indent: 1em;
-}
-
-/* Style the navigation bar links */
-.navbar a {
-  float: left;
-  display: block;
-  color: #D9C3E1;
-  text-align: center;
-  padding: 14px 20px;
-  text-decoration: none;
-}
-
-/* Change color on hover */
-.navbar a:hover {
-  background-color: #6D5B74;
-  color: #E7D5EE;
-}
 
 .row {  
   display: flex;
 }
 
-.side {
-  -ms-flex: 40%; /* IE10 */
-  flex: 40%;
-  background-color: #f1f1f1;
-  padding: 20px;
-}
-
-.main {   
-  -ms-flex: 70%;
-  flex: 70%;
-  color: #4F6A61;
-  padding: 20px;
-  background: #D5EEE6;
-}
-
-
-/* Footer */
-.footer {
-  padding: 15px;
-  text-align: right;
-  background: #9A839B;
-  color: #504451;
-}
-
-.footer h2 {
-  text-align: left;
-  color: #504451;
-}
-
-/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 700px) {
   .row {   
     flex-direction: column;
   }
 }
 
-/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+/* Popup container */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* The actual popup (appears on bottom) */
+.popup .popuptext {
+  visibility: hidden;
+  width: 370px; /* Set your desired width */
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  top: 100%; /* Show at the bottom */
+  left: 50%;
+  margin-left: -185px; /* Adjust the margin based on half of the width */
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #555 transparent;
+}
+
+/* Toggle this class when hovering on the popup container (hide and show the popup) */
+.popup:hover .popuptext {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+
 @media screen and (max-width: 400px) {
   .navbar a {
     float: none;
@@ -101,9 +88,9 @@ img {
 }
 
 .btn-group button {
-  background-color: #B6ECFF; /* Green background */
-  border: 1px solid #7A9FAC; /* Green border */
-  color: #475D66; /* White text */
+  background-color: #F7D08A;
+  border: 1px solid #c2a96d;
+  color: #9c855c;
   padding: 10px 24px; /* Some padding */
   cursor: pointer; /* Pointer/hand icon */
   float: left; /* Float the buttons side by side */
@@ -113,16 +100,14 @@ img {
   border-right: none; /* Prevent double borders */
 }
 
-/* Clear floats (clearfix hack) */
 .btn-group:after {
   content: "";
   clear: both;
   display: table;
 }
 
-/* Add a background color on hover */
 .btn-group button:hover {
-  background-color: #9AC8DB;
+  background-color: #FFD700;
 }
 
 pre {
@@ -133,5 +118,101 @@ pre {
   line-height: 0.8;
 }
 
+/* Chat Settings */
 
+.header {
+  padding: 80px;
+  text-align: center;
+  background: #666d94;
+  color: #B3D7FF;
+}
+.header h1 {
+  font-size: 40px;
+}
+
+.header iframe {
+  font-size: 40px;
+  text-align:left;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #FDF7C2;
+  color: #E1C171;
+}
+div.a {
+  text-indent: 1em;
+}
+.navbar a {
+  float: left;
+  display: block;
+  color: #33495E;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  border-right:solid 2px #c2a96d;
+}
+
+.navbar a.active {
+  background-color: #9a8ba6;
+  color: #33495E;
+  border-right: solid 1px #7b6f85;
+}
+
+.navbar a:hover {
+  background-color: #9a8ba6;
+  color: #33495E;
+  border-right:solid 1px #7b6f85;
+}
+.side {
+  -ms-flex: 40%; 
+  flex: 40%;
+  background-color: #D4DCE6;
+  color: #33495E;
+  padding: 20px;
+}
+
+.main {   
+  -ms-flex: 70%;
+  flex: 70%;
+  color: #4E2A77;
+  padding: 20px;
+  background: #9a8ba6;
+}
+
+.footer {
+  padding: 15px;
+  text-align: right;
+  background: #666d94;
+  color: #667292;
+  border-radius: 25px;
+}
+
+.footer h2 {
+  text-align: left;
+  color: #B3D7FF;
+}
+
+
+
+a:link {
+  color: #FFD700;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: #FDF7C2;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: #FDF7C2;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:active {
+  color: #FDF7C2;
+  background-color: transparent;
+  text-decoration: underline;
+}
 
